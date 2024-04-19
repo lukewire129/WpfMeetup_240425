@@ -1,0 +1,42 @@
+<Window
+    x:Class="AvaloniaSample.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AvaloniaSample"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="White"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ControlTheme x:Key="itemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border
+                        Width="30"
+                        Height="30"
+                        Margin="5"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        CornerRadius="3">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </Window.Resources>
+    <Grid RowDefinitions="auto, *">
+        <Button
+            Width="100"
+            Height="50"
+            Command="{Binding AddCommand}" />
+        <ListBox
+            Grid.Row="1"
+            ItemContainerTheme="{StaticResource itemStyle}"
+            ItemsSource="{Binding TestData}" />
+    </Grid>
+</Window>
