@@ -1,0 +1,167 @@
+﻿<Window
+    x:Class="DataGridSampleTest.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DataGridSampleTest.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button
+            Width="50"
+            Height="30"
+            HorizontalAlignment="Right"
+            Command="{Binding RandomDataCommand}"
+            Content="랜덤생성" />
+        <DataGrid
+            Grid.Row="1"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Devices}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding DeviceId}"
+                    Header="DeviceId" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text1}"
+                    Header="Text1" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text2}"
+                    Header="Text2" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text3}"
+                    Header="Text3" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text4}"
+                    Header="Text4" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text5}"
+                    Header="Text5" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text6}"
+                    Header="Text6" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text7}"
+                    Header="Text7" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text8}"
+                    Header="Text8" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text9}"
+                    Header="Text9" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text10}"
+                    Header="Text10" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text11}"
+                    Header="Text11" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text12}"
+                    Header="Text12" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text13}"
+                    Header="Text13" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text14}"
+                    Header="Text14" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text15}"
+                    Header="Text15" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text16}"
+                    Header="Text16" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text17}"
+                    Header="Text17" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text18}"
+                    Header="Text18" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text19}"
+                    Header="Text19" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text20}"
+                    Header="Text20" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text21}"
+                    Header="Text21" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text22}"
+                    Header="Text22" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text23}"
+                    Header="Text23" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text24}"
+                    Header="Text24" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text25}"
+                    Header="Text25" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text26}"
+                    Header="Text26" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text27}"
+                    Header="Text27" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text28}"
+                    Header="Text28" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text29}"
+                    Header="Text29" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text30}"
+                    Header="Text30" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text31}"
+                    Header="Text31" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text32}"
+                    Header="Text32" />
+                <DataGridTextColumn
+                    Width="150"
+                    Binding="{Binding Text33}"
+                    Header="Text33" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
