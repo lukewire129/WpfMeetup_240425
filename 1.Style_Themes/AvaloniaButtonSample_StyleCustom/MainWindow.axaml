@@ -1,0 +1,52 @@
+<Window
+    x:Class="AvaloniaButtonSample_StyleCustom.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AvaloniaButtonSample_StyleCustom"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="White"
+    mc:Ignorable="d">
+    <Window.Styles>
+        <Style Selector="Button.FontBold">
+            <Setter Property="Foreground" Value="Red" />
+        </Style>
+        <Style Selector="Button.Size">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Height" Value="300" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="Content" Value="Hello, Avalonia" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="LightGray" />
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </Style>
+    </Window.Styles>
+    <Button Classes="FontBold Size" />
+
+</Window>
