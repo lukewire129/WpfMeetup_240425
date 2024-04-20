@@ -1,7 +1,7 @@
-﻿using CommViewModel;
+﻿using ListBoxSampleTest.Shared;
 using System.Windows;
 
-namespace wpfSample
+namespace ListBoxSampleTest.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

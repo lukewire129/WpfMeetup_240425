@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace AvaloniaSample
+namespace ListBoxSampleTest.Avalonia
 {
     public partial class App : Application
     {

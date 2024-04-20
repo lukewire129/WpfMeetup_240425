@@ -1,0 +1,136 @@
+﻿<Window
+    x:Class="ListBoxSampleTest.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ListBoxSampleTest.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WPF Window"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="LottoNumber" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Grid Margin="10,0,0,0">
+                            <Ellipse
+                                x:Name="PART_Background"
+                                Width="100"
+                                Height="100" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="1">
+                                <Setter TargetName="PART_Background" Property="Fill" Value="#f2c643" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2">
+                                <Setter TargetName="PART_Background" Property="Fill" Value="#6faed3" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="3">
+                                <Setter TargetName="PART_Background" Property="Fill" Value="#ee7a76" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="4">
+                                <Setter TargetName="PART_Background" Property="Fill" Value="#aaaaaa" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="5">
+                                <Setter TargetName="PART_Background" Property="Fill" Value="#b8d75b" />
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LottoNumbers" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Label
+                            Content="{Binding Number}"
+                            Style="{StaticResource LottoNumber}"
+                            Tag="{Binding Type}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="itemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="#c3421f" Text="{Binding No}" />
+                                <TextBlock Text="당첨 결과" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding Date}" />
+                            <ListBox ItemContainerStyle="{StaticResource LottoNumbers}" ItemsSource="{Binding Numbers}">
+                                <ListBox.Style>
+                                    <Style TargetType="{x:Type ListBox}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListBox}">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <ItemsPresenter />
+                                                        <Viewbox
+                                                            Width="50"
+                                                            Height="50"
+                                                            Margin="10,-10,10,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center">
+                                                            <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="#999999" />
+                                                        </Viewbox>
+                                                        <Label
+                                                            Content="{Binding bonusNumber.Number}"
+                                                            Style="{StaticResource LottoNumber}"
+                                                            Tag="{Binding bonusNumber.Type}" />
+                                                    </StackPanel>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.Style>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Height="50" Orientation="Horizontal">
+                <Label VerticalAlignment="Center" Content="총 횟수 요청" />
+                <TextBox
+                    x:Name="tb_cnt"
+                    Width="100"
+                    Height="30"
+                    VerticalContentAlignment="Center"
+                    Text="{Binding SearchCount}" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding Path=Text, ElementName=tb_cnt}"
+                    Content="요청" />
+            </StackPanel>
+            <Label Content="{Binding Result}" FontSize="20" />
+        </StackPanel>
+        <ListBox
+            Grid.Row="1"
+            ItemContainerStyle="{StaticResource itemStyle}"
+            ItemsSource="{Binding LottoModels}" />
+    </Grid>
+</Window>

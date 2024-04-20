@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace AvaloniaSample
+namespace ListBoxSampleTest.Avalonia
 {
     internal class Program
     {

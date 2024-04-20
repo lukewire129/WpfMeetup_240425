@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wpfSample", "wpfSample\wpfSample.csproj", "{39040214-2F46-45C5-82BD-F316BA187C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBoxSampleTest.Wpf", "ListBoxSampleTest.Wpf\ListBoxSampleTest.Wpf.csproj", "{39040214-2F46-45C5-82BD-F316BA187C54}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommViewModel", "CommViewModel\CommViewModel.csproj", "{AC26891F-8C01-4076-96EC-CB9FFB13856F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBoxSampleTest.Shared", "ListBoxSampleTest.Shared\ListBoxSampleTest.Shared.csproj", "{AC26891F-8C01-4076-96EC-CB9FFB13856F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaSample", "AvaloniaSample\AvaloniaSample.csproj", "{353E84FA-8FA5-4FBC-91E0-E023DF3D43CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListBoxSampleTest.Avalonia", "ListBoxSampleTest.Avalonia\ListBoxSampleTest.Avalonia.csproj", "{353E84FA-8FA5-4FBC-91E0-E023DF3D43CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lotto", "Lotto", "{080FB3AF-9FD5-4B1F-95E0-39576478972F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{106B0813-7F99-44E0-A969-F40BF7829931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39040214-2F46-45C5-82BD-F316BA187C54} = {080FB3AF-9FD5-4B1F-95E0-39576478972F}
+		{AC26891F-8C01-4076-96EC-CB9FFB13856F} = {080FB3AF-9FD5-4B1F-95E0-39576478972F}
+		{353E84FA-8FA5-4FBC-91E0-E023DF3D43CE} = {080FB3AF-9FD5-4B1F-95E0-39576478972F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A4524224-44FD-45D6-970F-E410741137DE}

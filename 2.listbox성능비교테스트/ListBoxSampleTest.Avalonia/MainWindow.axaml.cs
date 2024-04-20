@@ -1,7 +1,7 @@
 using Avalonia.Controls;
-using CommViewModel;
+using ListBoxSampleTest.Shared;
 
-namespace AvaloniaSample
+namespace ListBoxSampleTest.Avalonia
 {
     public partial class MainWindow : Window
     {
