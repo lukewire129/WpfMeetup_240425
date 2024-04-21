@@ -127,7 +127,43 @@ dotnet new install Avalonia.Templates
 </Window.Styles>
 <Button />
 ```
-
+## Avalonia Sample - ControlTheme + Style
+```
+ <Window.Resources>
+     <ControlTheme x:Key="ButtonStyle" TargetType="{x:Type Button}">
+         <Setter Property="HorizontalAlignment" Value="Center" />
+         <Setter Property="VerticalAlignment" Value="Center" />
+         <Setter Property="FontSize" Value="20" />
+         <Setter Property="Background" Value="Transparent" />
+         <Setter Property="Cursor" Value="Hand" />
+         <Setter Property="Width" Value="200" />
+         <Setter Property="Height" Value="100" />
+         <Setter Property="Content" Value="Hello, Avalonia" />
+         <Setter Property="Foreground" Value="Black" />
+         <Setter Property="Template">
+             <ControlTemplate>
+                 <Border
+                     Background="{TemplateBinding Background}"
+                     BorderBrush="Black"
+                     BorderThickness="1"
+                     CornerRadius="10">
+                     <ContentPresenter
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Content="{TemplateBinding Content}" />
+                 </Border>
+             </ControlTemplate>
+         </Setter>
+     </ControlTheme>
+ </Window.Resources>
+ <Window.Styles>
+     <Style Selector="Button:pointerover">
+         <Setter Property="Background" Value="LightGray" />
+         <Setter Property="Foreground" Value="White" />
+     </Style>
+ </Window.Styles>
+ <Button Theme="{StaticResource ButtonStyle}" />
+```
 ## Avalonia Sample - Style Custom
 ```
  <Window.Styles>
