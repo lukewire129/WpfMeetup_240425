@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="AvaloniaButtonSample_Theme/MainWindow.axaml" value="AvaloniaButtonSample_Theme/AvaloniaButtonSample_Theme.csproj" />
+        <entry key="AvaloniaButtonSample_ThemeStyle/MainWindow.axaml" value="AvaloniaButtonSample_ThemeStyle/AvaloniaButtonSample_ThemeStyle.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
