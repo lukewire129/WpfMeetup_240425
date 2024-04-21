@@ -1,9 +1,26 @@
 # WpfMeetup_240425
 WPF의 현대적 재해석 아발로니아
 
+## 설치 및 기본정리
+### 1. 템플릿 설치
+- 커맨드 열기
+- 명령어 입력
+```
+dotnet new install Avalonia.Templates
+```
+
+### 2. 확장도구 설치 URL
+- [VisualStudio](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaVS)
+- [VisualCode](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.vscode-avalonia)
+
+### 3. VisualStudio Code 명령어 정리
+- [Blog](https://blog.naver.com/lukewire129/223379542670)
+
+
+## Sample 소스
 ![Screenshot 2024-04-14 at 10 37 18](https://github.com/lukewire129/WpfMeetup_240425/assets/54387261/7863e977-4c5d-44b3-a192-2ce2a88f9321)
 
-## WPF Sample
+### WPF Sample
 ```
  <Window.Resources>
      <Style TargetType="{x:Type Button}">
