@@ -1,0 +1,133 @@
+<UserControl
+    x:Class="ListBoxAvalonia.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ControlTheme x:Key="LottoNumber" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Grid Margin="10,0,0,0">
+                        <Ellipse
+                            x:Name="PART_Background"
+                            Width="100"
+                            Height="100" />
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^[Tag=1] /template/ Ellipse#PART_Background">
+                <Setter Property="Fill" Value="#f2c643" />
+            </Style>
+            <Style Selector="^[Tag=2] /template/ Ellipse#PART_Background">
+                <Setter Property="Fill" Value="#6faed3" />
+            </Style>
+            <Style Selector="^[Tag=3] /template/ Ellipse#PART_Background">
+                <Setter Property="Fill" Value="#ee7a76" />
+            </Style>
+            <Style Selector="^[Tag=4] /template/ Ellipse#PART_Background">
+                <Setter Property="Fill" Value="#aaaaaa" />
+            </Style>
+            <Style Selector="^[Tag=5] /template/ Ellipse#PART_Background">
+                <Setter Property="Fill" Value="#b8d75b" />
+            </Style>
+        </ControlTheme>
+        <ControlTheme x:Key="LottoNumberItemTheme" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Label
+                        Content="{Binding Number}"
+                        Tag="{Binding Type}"
+                        Theme="{StaticResource LottoNumber}" />
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+        <ControlTheme x:Key="LottoNumbersStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <StackPanel Orientation="Horizontal">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <Viewbox
+                            Width="50"
+                            Height="50"
+                            Margin="10,-10,10,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="#999999" />
+                        </Viewbox>
+                        <Label
+                            Content="{Binding bonusNumber.Number}"
+                            Tag="{Binding bonusNumber.Type}"
+                            Theme="{StaticResource LottoNumber}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </ControlTheme>
+        <ControlTheme x:Key="itemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Foreground="#c3421f" Text="{Binding No}" />
+                            <TextBlock Text="당첨 결과" />
+                        </StackPanel>
+                        <TextBlock Text="{Binding Date}" />
+                        <ListBox
+                            ItemContainerTheme="{StaticResource LottoNumberItemTheme}"
+                            ItemsSource="{Binding Numbers}"
+                            Theme="{StaticResource LottoNumbersStyle}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </UserControl.Resources>
+    <Grid RowDefinitions="auto, *">
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <StackPanel Height="50" Orientation="Horizontal">
+                <Label
+                    VerticalAlignment="Center"
+                    Content="총 횟수 요청"
+                    Foreground="Black" />
+                <TextBox
+                    x:Name="tb_cnt"
+                    Width="100"
+                    Height="30"
+                    VerticalContentAlignment="Center"
+                    Text="{Binding SearchCount}" />
+                <Button
+                    Width="100"
+                    Height="30"
+                    Background="Gray"
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding Path=Text, ElementName=tb_cnt}"
+                    Content="요청" />
+            </StackPanel>
+            <Label
+                Content="{Binding Result}"
+                FontSize="20"
+                Foreground="Black" />
+        </StackPanel>
+        <ListBox
+            Grid.Row="1"
+            ItemContainerTheme="{StaticResource itemStyle}"
+            ItemsSource="{Binding LottoModels}" />
+    </Grid>
+</UserControl>
