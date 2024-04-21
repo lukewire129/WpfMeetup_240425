@@ -164,7 +164,7 @@ dotnet new install Avalonia.Templates
  </Window.Styles>
  <Button Theme="{StaticResource ButtonStyle}" />
 ```
-## Avalonia Sample - Style Custom
+## Avalonia Sample - Style + Classes
 ```
  <Window.Styles>
      <Style Selector="Button.FontBold">
