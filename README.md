@@ -13,9 +13,23 @@ dotnet new install Avalonia.Templates
 - [VisualStudio](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaVS)
 - [VisualCode](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.vscode-avalonia)
 
-### 3. VisualStudio Code 명령어 정리
-- [Blog](https://blog.naver.com/lukewire129/223379542670)
+### 3. HotAvalonia [참고](https://github.com/Kir-Antipov/HotAvalonia)
+**Nuget Install**
+```
+Avalonia.Markup.Xaml.Loader
+HotAvalonia
+HotAvalonia.Extensions 
+```
+**.csproj 파일에 추가**
+```
+<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  <DefineConstants>$(DefineConstants);ENABLE_XAML_HOT_RELOAD</DefineConstants>
+</PropertyGroup>
+```
 
+
+### etc. VisualStudio Code 명령어 정리
+- [Blog](https://blog.naver.com/lukewire129/223379542670)
 
 ## Sample 소스
 ![Screenshot 2024-04-14 at 10 37 18](https://github.com/lukewire129/WpfMeetup_240425/assets/54387261/7863e977-4c5d-44b3-a192-2ce2a88f9321)
